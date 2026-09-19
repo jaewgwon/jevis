@@ -1,6 +1,6 @@
 name: jevis
 description: Autonomous goal-driven Flutter UI tests. Define actions once and let Jevis select actions and evaluate completion.
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/jaewgwon/jevis
 issue_tracker: https://github.com/jaewgwon/jevis/issues
 environment:
