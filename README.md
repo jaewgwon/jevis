@@ -82,7 +82,7 @@ The default client calls the real Jev API. A missing key fails during initializa
 
 ### 3. Write your first test
 
-Create `integration_test/todo_test.dart` in your app:
+Create `integration_test/jevis_smoke_test.dart` in your app:
 
 ```dart
 import 'package:flutter_test/flutter_test.dart';
@@ -120,18 +120,15 @@ Replace `your_app` with the package name from your app's `pubspec.yaml`. This te
 
 ### 4. Run the test
 
-Start your device or simulator, then run these commands from your app's root:
+Start a simulator or emulator, or connect a physical device before running the test. Then run this command from your app's root:
 
 ```bash
-flutter devices
-flutter test integration_test/todo_test.dart \
-  -d <device-id> \
-  --dart-define-from-file=jev.local.json
+flutter test integration_test/jevis_smoke_test.dart --dart-define-from-file=jev.local.json
 ```
 
-Replace `<device-id>` with an ID from `flutter devices`. A successful run returns a `JevisReport`. If the goal is not reached, Jevis throws `JevisTestFailure`, failing the Flutter test.
+A successful run returns a `JevisReport`. If the goal is not reached, Jevis throws `JevisTestFailure`, failing the Flutter test.
 
-If setup fails, first check that `flutter pub get` succeeds, the device ID, and whether the command includes `--dart-define-from-file`. API requests contain current UI text and action descriptions, so use test accounts and test data.
+If setup fails, first check that `flutter pub get` succeeds, that a simulator is running or a device is connected, and whether the command includes `--dart-define-from-file`. API requests contain current UI text and action descriptions, so use test accounts and test data.
 
 <a id="actions"></a>
 ## Actions

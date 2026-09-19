@@ -82,7 +82,7 @@ jev.local.json
 
 ### 3. 最初のテストを書く
 
-アプリに`integration_test/todo_test.dart`を作成します。
+アプリに`integration_test/jevis_smoke_test.dart`を作成します。
 
 ```dart
 import 'package:flutter_test/flutter_test.dart';
@@ -120,18 +120,15 @@ void main() {
 
 ### 4. テストを実行する
 
-実機やシミュレーターを起動し、アプリのルートで次のコマンドを実行します。
+テストの前にシミュレーターやエミュレーターを起動するか、実機を接続してください。アプリのルートで次のコマンドを実行します。
 
 ```bash
-flutter devices
-flutter test integration_test/todo_test.dart \
-  -d <device-id> \
-  --dart-define-from-file=jev.local.json
+flutter test integration_test/jevis_smoke_test.dart --dart-define-from-file=jev.local.json
 ```
 
-`<device-id>`を`flutter devices`に表示されたIDに置き換えてください。成功すると`JevisReport`を返します。目標を達成できなかった場合は`JevisTestFailure`をスローし、Flutterテストを失敗させます。
+成功すると`JevisReport`を返します。目標を達成できなかった場合は`JevisTestFailure`をスローし、Flutterテストを失敗させます。
 
-設定で問題が起きた場合は、まず`flutter pub get`が成功するか、デバイスID、`--dart-define-from-file`の指定を確認してください。APIリクエストには現在のUIテキストとアクションの説明が含まれるため、テスト用のアカウントとデータを使ってください。
+設定で問題が起きた場合は、まず`flutter pub get`が成功するか、シミュレーターの起動または実機の接続状態、`--dart-define-from-file`の指定を確認してください。APIリクエストには現在のUIテキストとアクションの説明が含まれるため、テスト用のアカウントとデータを使ってください。
 
 <a id="actions"></a>
 ## アクション

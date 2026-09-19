@@ -82,7 +82,7 @@ jev.local.json
 
 ### 3. 첫 테스트 작성
 
-앱에 `integration_test/todo_test.dart`를 만듭니다.
+앱에 `integration_test/jevis_smoke_test.dart`를 만듭니다.
 
 ```dart
 import 'package:flutter_test/flutter_test.dart';
@@ -120,18 +120,15 @@ void main() {
 
 ### 4. 테스트 실행
 
-기기나 시뮬레이터를 실행한 뒤 앱 루트에서 다음 명령을 실행합니다.
+테스트 전에 Simulator나 에뮬레이터를 켜거나 실제 디바이스를 연결해 두세요. 앱 루트에서 다음 명령을 실행합니다.
 
 ```bash
-flutter devices
-flutter test integration_test/todo_test.dart \
-  -d <device-id> \
-  --dart-define-from-file=jev.local.json
+flutter test integration_test/jevis_smoke_test.dart --dart-define-from-file=jev.local.json
 ```
 
-`<device-id>`를 `flutter devices`에 표시된 ID로 바꾸세요. 성공하면 `JevisReport`를 반환합니다. 목표를 달성하지 못하면 `JevisTestFailure`를 던져 Flutter 테스트를 실패시킵니다.
+성공하면 `JevisReport`를 반환합니다. 목표를 달성하지 못하면 `JevisTestFailure`를 던져 Flutter 테스트를 실패시킵니다.
 
-설정 문제가 발생하면 먼저 `flutter pub get` 성공 여부, 기기 ID, `--dart-define-from-file` 전달 여부를 확인하세요. API 요청에는 현재 UI 텍스트와 액션 설명이 포함되므로 테스트용 계정과 데이터를 사용하세요.
+설정 문제가 발생하면 먼저 `flutter pub get` 성공 여부, 시뮬레이터 실행 또는 디바이스 연결 상태, `--dart-define-from-file` 전달 여부를 확인하세요. API 요청에는 현재 UI 텍스트와 액션 설명이 포함되므로 테스트용 계정과 데이터를 사용하세요.
 
 <a id="actions"></a>
 ## 액션
