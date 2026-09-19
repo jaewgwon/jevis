@@ -62,6 +62,36 @@ Write code comments in English. Never include API keys or local credentials in
 commits. See the [README](README.md#example-and-tests) for live integration tests,
 which require your own API key and a supported device.
 
+## Publishing releases
+
+The `Publish to pub.dev` workflow publishes stable version tags such as `v0.1.1`.
+It checks that the tag matches `pubspec.yaml`, runs analysis and tests, then uses
+the official Dart publishing workflow to perform a dry run and publish via OIDC.
+No long-lived pub.dev credentials or GitHub secrets are needed.
+
+Before the first automated release, a package uploader or publisher admin must
+enable publishing from GitHub Actions at
+<https://pub.dev/packages/jevis/admin> with these values:
+
+- Repository: `jaewgwon/jevis`
+- Tag pattern: `v{{version}}`
+- Required GitHub Actions environment: none (the workflow does not specify one)
+
+For each release:
+
+1. Update `pubspec.yaml`, `CHANGELOG.md`, and any affected documentation.
+2. Run `flutter analyze`, `flutter test`, and `dart pub publish --dry-run`.
+3. Commit and push the release changes, including the publishing workflow.
+4. Tag that commit with the matching version and push the tag:
+
+   ```bash
+   git tag v0.1.1
+   git push origin v0.1.1
+   ```
+
+5. Check the workflow at <https://github.com/jaewgwon/jevis/actions> and the new
+   version at <https://pub.dev/packages/jevis>.
+
 ## Public documentation
 
 Keep user-facing reference documentation in `doc/` and link to it from the
