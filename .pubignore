@@ -1,0 +1,22 @@
+.dart_tool/
+build/
+**/build/
+**/.dart_tool/
+**/.idea/
+**/*.iml
+**/Pods/
+**/.symlinks/
+**/ephemeral/
+**/xcuserdata/
+**/Generated.xcconfig
+**/flutter_export_environment.sh
+**/GeneratedPluginRegistrant.*
+**/.flutter-plugins-dependencies
+**/jev.local*.json
+**/.env*
+**/*.log
+**/.DS_Store
+pubspec.lock
+
+# Internal research and experiment records.
+/doc/
