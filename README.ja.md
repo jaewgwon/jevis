@@ -336,13 +336,10 @@ cd example
 flutter pub get
 ```
 
-[How to start](#how-to-start)に従って、`example/jev.local.json`にAPIキーを設定します。次のコマンドは`example/`で実行してください。
+[How to start](#how-to-start)に従って、`example/jev.local.json`にAPIキーを設定します。テストの前にシミュレーターやエミュレーターを起動するか、実機を接続してください。次のコマンドは`example/`で実行してください。
 
 ```bash
-flutter devices
-flutter test integration_test/todo_agent_test.dart \
-  -d <device-id> \
-  --dart-define-from-file=jev.local.json
+flutter test integration_test/todo_agent_test.dart --dart-define-from-file=jev.local.json
 ```
 
 実際のAPIキーを使わずにパッケージの動作を確認するには、リポジトリのルートからモックを使うテストとウィジェットテストを実行します。

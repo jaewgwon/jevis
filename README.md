@@ -336,13 +336,10 @@ cd example
 flutter pub get
 ```
 
-Create `example/jev.local.json` with your API key as described in [How to start](#how-to-start). Run the following commands from `example/`:
+Create `example/jev.local.json` with your API key as described in [How to start](#how-to-start). Start a simulator or emulator, or connect a physical device before running the test. Run the following command from `example/`:
 
 ```bash
-flutter devices
-flutter test integration_test/todo_agent_test.dart \
-  -d <device-id> \
-  --dart-define-from-file=jev.local.json
+flutter test integration_test/todo_agent_test.dart --dart-define-from-file=jev.local.json
 ```
 
 To check the package locally without a real API key, run the mock-backed and widget tests from the repository root:

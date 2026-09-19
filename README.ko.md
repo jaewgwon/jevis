@@ -336,13 +336,10 @@ cd example
 flutter pub get
 ```
 
-[How to start](#how-to-start)를 따라 `example/jev.local.json`에 API 키를 설정합니다. 다음 명령은 `example/`에서 실행하세요.
+[How to start](#how-to-start)를 따라 `example/jev.local.json`에 API 키를 설정합니다. 테스트 전에 Simulator나 에뮬레이터를 켜거나 실제 디바이스를 연결해 두세요. 다음 명령은 `example/`에서 실행하세요.
 
 ```bash
-flutter devices
-flutter test integration_test/todo_agent_test.dart \
-  -d <device-id> \
-  --dart-define-from-file=jev.local.json
+flutter test integration_test/todo_agent_test.dart --dart-define-from-file=jev.local.json
 ```
 
 실제 API 키 없이 패키지 동작을 확인하려면 저장소 루트에서 mock 기반 테스트와 위젯 테스트를 실행합니다.
