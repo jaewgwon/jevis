@@ -273,7 +273,7 @@ Choice가 지침을 완료했다고 판단하면 `__stop__`을 선택할 수 있
 
 ### 결과 검증
 
-기본 성공 기준은 `goalThreshold: 0.95`입니다. 이는 **모델의 확률적 판단이며 결정론적 보장이 아닙니다.** 보고서에는 `completionBasis: model`로 표시됩니다. 화면에 드러나지 않는 상태, 저장 지속성, 서버 처리 결과는 UI 증거만으로 확인할 수 없습니다.
+기본 성공 기준은 `goalThreshold: 0.6`입니다. 이는 **모델의 확률적 판단이며 결정론적 보장이 아닙니다.** 보고서에는 `completionBasis: model`로 표시됩니다. 화면에 드러나지 않는 상태, 저장 지속성, 서버 처리 결과는 UI 증거만으로 확인할 수 없습니다.
 
 모델 완료 판단 이후 결정론적인 확인이 필요하다면 `verify`를 추가하세요.
 
@@ -321,8 +321,8 @@ final agent = JevisTester(
   actions: actions,
   model: 'jev-latest',
   options: const JevisOptions(
-    goalThreshold: 0.95,
-    actionThreshold: 0.5,
+    goalThreshold: 0.6,
+    actionThreshold: 0.2,
     maxRepeatedAction: 2,
     decisionTimeout: Duration(seconds: 30),
     settleTimeout: Duration(seconds: 5),
@@ -334,7 +334,9 @@ final agent = JevisTester(
 
 반환 보고서, `agent.lastReport`, `JevisTestFailure.report`에는 관찰 기록, 목표 확률, 행동 확신도와 확률 분포, 응답 모델 ID, 실행 액션, 실패 정보가 담깁니다. API 키는 보고서에 포함하지 않습니다. 디버깅할 때 `onRequest`와 `onResponse`로 HTTP 본문을 확인할 수 있으며, 본문에는 테스트 UI 데이터가 포함될 수 있습니다.
 
-행동 확신도는 정답률이 아닙니다. 앱의 테스트 데이터로 기준값을 조정하세요. 현재 예제 catalog 테스트는 `goalThreshold: 0.6`, `actionThreshold: 0.2`를 사용하며, 패키지 기본값은 각각 `0.95`, `0.5`입니다.
+실패 로그의 ANSI 색상은 기본으로 켜져 있습니다. 색상을 끄려면 `--dart-define=JEVIS_LOG_COLORS=false` 또는 `JevisTester(useColors: false)`를 지정하세요. `useColors`를 명시하면 실행 옵션보다 우선합니다.
+
+행동 확신도는 정답률이 아닙니다. 앱의 테스트 데이터로 기준값을 조정하세요. 현재 예제 catalog 테스트는 `goalThreshold: 0.6`, `actionThreshold: 0.2`를 사용하며, 패키지 기본값도 동일합니다.
 
 <a id="example-and-tests"></a>
 ## 예제와 테스트

@@ -79,7 +79,7 @@ class JevisRequest {
       required List<JevisTrace> history,
       List<String> previousActions = const [],
       JevisTrace? previousStep,
-      this.goalThreshold = .95,
+      this.goalThreshold = .6,
       required this.remainingAttempts})
       : previousActions = List.unmodifiable(previousActions),
         history = List.unmodifiable(history),
@@ -146,8 +146,8 @@ abstract interface class JevisRunLifecycle {
 /// Advanced tuning. Defaults are starting points, not accuracy guarantees.
 class JevisOptions {
   const JevisOptions(
-      {this.goalThreshold = .95,
-      this.actionThreshold = .5,
+      {this.goalThreshold = .6,
+      this.actionThreshold = .2,
       this.maxRepeatedAction = 2,
       this.historyLimit = 8,
       this.decisionTimeout = const Duration(seconds: 30),

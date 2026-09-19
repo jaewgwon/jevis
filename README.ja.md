@@ -273,7 +273,7 @@ Choiceは、指示を完了したと判断すると`__stop__`を選択できま�
 
 ### 結果の検証
 
-デフォルトの成功基準は`goalThreshold: 0.95`です。これは**モデルによる確率的な判断であり、決定論的な保証ではありません。** レポートには`completionBasis: model`と記録されます。画面に現れない状態、保存の永続性、サーバー側の処理結果は、UIの証拠だけでは確認できません。
+デフォルトの成功基準は`goalThreshold: 0.6`です。これは**モデルによる確率的な判断であり、決定論的な保証ではありません。** レポートには`completionBasis: model`と記録されます。画面に現れない状態、保存の永続性、サーバー側の処理結果は、UIの証拠だけでは確認できません。
 
 モデルが完了と判断した後に決定論的な検証を行う場合は、`verify`を追加します。
 
@@ -321,8 +321,8 @@ final agent = JevisTester(
   actions: actions,
   model: 'jev-latest',
   options: const JevisOptions(
-    goalThreshold: 0.95,
-    actionThreshold: 0.5,
+    goalThreshold: 0.6,
+    actionThreshold: 0.2,
     maxRepeatedAction: 2,
     decisionTimeout: Duration(seconds: 30),
     settleTimeout: Duration(seconds: 5),
@@ -334,7 +334,9 @@ final agent = JevisTester(
 
 戻り値のレポート、`agent.lastReport`、`JevisTestFailure.report`には、観察記録、目標の確率、アクションの確信度と確率分布、応答のモデルID、実行したアクション、失敗の詳細が含まれます。APIキーはレポートに含めません。デバッグ時は`onRequest`と`onResponse`でHTTP本文を確認できますが、本文にはテストUIのデータが含まれる場合があります。
 
-アクションの確信度は正答率ではありません。アプリのテストデータを使ってしきい値を調整してください。付属のcatalogテストは現在`goalThreshold: 0.6`と`actionThreshold: 0.2`を使用していますが、パッケージのデフォルトはそれぞれ`0.95`と`0.5`です。
+失敗ログのANSIカラーはデフォルトで有効です。無効にするには `--dart-define=JEVIS_LOG_COLORS=false` または `JevisTester(useColors: false)` を指定してください。明示的な `useColors` の指定が優先されます。
+
+アクションの確信度は正答率ではありません。アプリのテストデータを使ってしきい値を調整してください。付属のcatalogテストは現在`goalThreshold: 0.6`と`actionThreshold: 0.2`を使用していますが、パッケージのデフォルトも同じです。
 
 <a id="example-and-tests"></a>
 ## サンプルとテスト

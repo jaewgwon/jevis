@@ -34,6 +34,31 @@ class Brain implements JevisBrain {
 }
 
 void main() {
+  test('default thresholds accept 20% actions and a 60% goal', () async {
+    final driver = Driver();
+    final brain = CallbackBrain((request) async => JevisEvaluation(
+        goalProbability: driver.value == 0 ? .59 : .6,
+        actionId: 'next',
+        actionConfidence: .2));
+    final report = await JevisRunner(driver: driver, brain: brain)
+        .run('Advance once', 'Advance', 1);
+
+    expect(report.status, JevisStatus.succeeded);
+    expect(report.actionsExecuted, 1);
+  });
+
+  test('standalone requests default to a 60% goal threshold', () {
+    final request = JevisRequest(
+        goal: 'Goal',
+        actionInstruction: 'Advance',
+        initialState: {},
+        observation: JevisObservation(state: {}, actions: []),
+        history: [],
+        remainingAttempts: 1);
+
+    expect(request.goalThreshold, .6);
+  });
+
   for (final historyLimit in [0, 1, 8]) {
     test('explicit before/action/after works with historyLimit=$historyLimit',
         () async {
