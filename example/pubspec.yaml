@@ -1,5 +1,5 @@
-name: jevis_flutter_example
-description: A runnable todo example for jevis_flutter.
+name: jevis_example
+description: A runnable todo example for jevis.
 publish_to: none
 version: 1.0.0+1
 environment:
@@ -14,7 +14,7 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^5.0.0
   meta: ^1.18.3
-  jevis_flutter:
+  jevis:
     path: ../
 flutter:
   uses-material-design: true

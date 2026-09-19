@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:jevis_flutter/jevis_flutter.dart';
+import 'package:jevis/jevis.dart';
 
 class Driver implements JevisDriver {
   int value = 0;

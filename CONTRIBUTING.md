@@ -1,4 +1,4 @@
-# Contributing to jevis_flutter
+# Contributing to jevis
 
 Bug reports, documentation improvements, and code contributions are welcome.
 For substantial changes, open an issue first to discuss the proposed behavior.

@@ -1,6 +1,6 @@
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md)
 
-# jevis_flutter
+# jevis
 
 Jevis is a Dart package that runs on Flutter's `integration_test` framework to test Flutter apps with TypeSafe's Jev model. **Register the actions your test may use, describe a goal, and set an action budget.** Jev chooses the next action from the current UI and evaluates whether the goal has been reached.
 
@@ -42,7 +42,7 @@ The setup below uses a local source checkout. Download or clone this repository 
 ```text
 workspace/
   your_app/
-  jevis_flutter/
+  jevis/
 ```
 
 Add the package to your app's `pubspec.yaml` under `dev_dependencies`:
@@ -53,8 +53,8 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  jevis_flutter:
-    path: ../jevis_flutter
+  jevis:
+    path: ../jevis
 ```
 
 Adjust `path` to the actual checkout directory; the directory name does not have to match the package name. Run this from your app's root:
@@ -92,7 +92,7 @@ Create `integration_test/todo_test.dart` in your app:
 ```dart
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:jevis_flutter/jevis_flutter.dart';
+import 'package:jevis/jevis.dart';
 import 'package:your_app/main.dart' as app;
 
 void main() {

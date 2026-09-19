@@ -9,7 +9,7 @@ Examples use these imports inside a Flutter test:
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:jevis_flutter/jevis_flutter.dart';
+import 'package:jevis/jevis.dart';
 ```
 
 Register only the actions needed by a test. Jev selects one declared action; the driver performs it, waits for the screen, and observes the actual result. Descriptions explain when an action is useful and may describe its expected effect. They are sent unchanged as Choice criteria, not treated as evidence that the effect has happened.

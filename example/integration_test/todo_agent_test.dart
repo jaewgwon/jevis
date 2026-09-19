@@ -3,8 +3,8 @@ import 'package:meta/meta.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:jevis_flutter/jevis_flutter.dart';
-import 'package:jevis_flutter_example/main.dart' as app;
+import 'package:jevis/jevis.dart';
+import 'package:jevis_example/main.dart' as app;
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();

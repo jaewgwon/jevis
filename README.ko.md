@@ -1,6 +1,6 @@
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md)
 
-# jevis_flutter
+# jevis
 
 Jevis는 Flutter의 `integration_test`를 기반으로 동작하며, TypeSafe의 Jev 모델로 Flutter 앱을 테스트하는 Dart 패키지입니다. **테스트에 허용할 액션을 등록하고, 목표와 최대 행동 횟수를 지정하세요.** Jev가 현재 UI를 바탕으로 다음 행동을 선택하고 목표 달성 여부를 판단합니다.
 
@@ -42,7 +42,7 @@ flutter doctor
 ```text
 workspace/
   your_app/
-  jevis_flutter/
+  jevis/
 ```
 
 앱의 `pubspec.yaml`에서 `dev_dependencies`에 패키지를 추가합니다.
@@ -53,8 +53,8 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  jevis_flutter:
-    path: ../jevis_flutter
+  jevis:
+    path: ../jevis
 ```
 
 `path`는 실제 저장소 폴더 경로에 맞게 변경하세요. 폴더 이름이 패키지 이름과 같을 필요는 없습니다. 앱 루트에서 다음을 실행합니다.
@@ -92,7 +92,7 @@ jev.local.json
 ```dart
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:jevis_flutter/jevis_flutter.dart';
+import 'package:jevis/jevis.dart';
 import 'package:your_app/main.dart' as app;
 
 void main() {
@@ -363,6 +363,6 @@ flutter analyze
 <a id="license-and-contributing"></a>
 ## 라이선스와 기여
 
-Copyright (c) 2026 jevis_flutter contributors.
+Copyright (c) 2026 jevis contributors.
 
 [Apache License 2.0](LICENSE)으로 배포됩니다. 기여에도 동일한 라이선스가 적용되며, 각 커밋에 [Developer Certificate of Origin (DCO) 1.1](DCO) sign-off가 필요합니다. 방법은 [기여 안내](CONTRIBUTING.md)를 참고하세요.
