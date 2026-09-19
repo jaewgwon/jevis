@@ -4,6 +4,10 @@
 
 Jevis는 Flutter의 `integration_test`를 기반으로 동작하며, TypeSafe의 Jev 모델로 Flutter 앱을 테스트하는 Dart 패키지입니다. **테스트에 허용할 액션을 등록하고, 목표와 최대 행동 횟수를 지정하세요.** Jev가 현재 UI를 바탕으로 다음 행동을 선택하고 목표 달성 여부를 판단합니다.
 
+[![YouTube에서 Jevis 작동 영상 보기](https://img.youtube.com/vi/pfnfXmgHioU/hqdefault.jpg)](https://www.youtube.com/watch?v=pfnfXmgHioU)
+
+[▶ YouTube에서 Jevis 작동 영상 보기](https://www.youtube.com/watch?v=pfnfXmgHioU)
+
 [How to start](#how-to-start) · [액션](#actions) · [목표와 실행](#goals-and-execution) · [관찰과 한계](#observation-and-limits) · [로그](#logging) · [예제와 테스트](#example-and-tests) · [라이선스와 기여](#license-and-contributing)
 
 ```dart

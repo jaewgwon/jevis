@@ -4,6 +4,10 @@
 
 Jevis is a Dart package that runs on Flutter's `integration_test` framework to test Flutter apps with TypeSafe's Jev model. **Register the actions your test may use, describe a goal, and set an action budget.** Jev chooses the next action from the current UI and evaluates whether the goal has been reached.
 
+[![Watch the Jevis demo on YouTube](https://img.youtube.com/vi/pfnfXmgHioU/hqdefault.jpg)](https://www.youtube.com/watch?v=pfnfXmgHioU)
+
+[▶ Watch the Jevis demo on YouTube](https://www.youtube.com/watch?v=pfnfXmgHioU)
+
 [How to start](#how-to-start) · [Actions](#actions) · [Goals and execution](#goals-and-execution) · [Observation and limits](#observation-and-limits) · [Logging](#logging) · [Example and tests](#example-and-tests) · [License and contributing](#license-and-contributing)
 
 ```dart
