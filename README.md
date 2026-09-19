@@ -41,15 +41,7 @@ You need a Flutter app, the Flutter SDK with Dart 3.4 or later, and a device, em
 flutter doctor
 ```
 
-The setup below uses a local source checkout. Download or clone this repository and place it next to your app, for example:
-
-```text
-workspace/
-  your_app/
-  jevis/
-```
-
-Add the package to your app's `pubspec.yaml` under `dev_dependencies`:
+Add [jevis from pub.dev](https://pub.dev/packages/jevis) to your app's `pubspec.yaml` under `dev_dependencies`:
 
 ```yaml
 dev_dependencies:
@@ -57,11 +49,10 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  jevis:
-    path: ../jevis
+  jevis: ^0.1.1
 ```
 
-Adjust `path` to the actual checkout directory; the directory name does not have to match the package name. Run this from your app's root:
+Install the dependencies from your app's root:
 
 ```bash
 flutter pub get
@@ -140,7 +131,7 @@ flutter test integration_test/todo_test.dart \
 
 Replace `<device-id>` with an ID from `flutter devices`. A successful run returns a `JevisReport`. If the goal is not reached, Jevis throws `JevisTestFailure`, failing the Flutter test.
 
-If setup fails, first check the local dependency path, the device ID, and whether the command includes `--dart-define-from-file`. API requests contain current UI text and action descriptions, so use test accounts and test data.
+If setup fails, first check that `flutter pub get` succeeds, the device ID, and whether the command includes `--dart-define-from-file`. API requests contain current UI text and action descriptions, so use test accounts and test data.
 
 <a id="actions"></a>
 ## Actions

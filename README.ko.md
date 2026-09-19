@@ -41,15 +41,7 @@ Flutter 앱, Dart 3.4 이상이 포함된 Flutter SDK, 앱이 지원하는 기�
 flutter doctor
 ```
 
-아래는 로컬 소스를 사용하는 설치 방법입니다. 이 저장소를 다운로드하거나 clone한 뒤, 예를 들어 앱 옆에 배치합니다.
-
-```text
-workspace/
-  your_app/
-  jevis/
-```
-
-앱의 `pubspec.yaml`에서 `dev_dependencies`에 패키지를 추가합니다.
+앱의 `pubspec.yaml`에서 `dev_dependencies`에 [pub.dev의 jevis](https://pub.dev/packages/jevis)를 추가합니다.
 
 ```yaml
 dev_dependencies:
@@ -57,11 +49,10 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  jevis:
-    path: ../jevis
+  jevis: ^0.1.1
 ```
 
-`path`는 실제 저장소 폴더 경로에 맞게 변경하세요. 폴더 이름이 패키지 이름과 같을 필요는 없습니다. 앱 루트에서 다음을 실행합니다.
+앱 루트에서 다음 명령으로 의존성을 설치합니다.
 
 ```bash
 flutter pub get
@@ -140,7 +131,7 @@ flutter test integration_test/todo_test.dart \
 
 `<device-id>`를 `flutter devices`에 표시된 ID로 바꾸세요. 성공하면 `JevisReport`를 반환합니다. 목표를 달성하지 못하면 `JevisTestFailure`를 던져 Flutter 테스트를 실패시킵니다.
 
-설정 문제가 발생하면 먼저 로컬 의존성 경로, 기기 ID, `--dart-define-from-file` 전달 여부를 확인하세요. API 요청에는 현재 UI 텍스트와 액션 설명이 포함되므로 테스트용 계정과 데이터를 사용하세요.
+설정 문제가 발생하면 먼저 `flutter pub get` 성공 여부, 기기 ID, `--dart-define-from-file` 전달 여부를 확인하세요. API 요청에는 현재 UI 텍스트와 액션 설명이 포함되므로 테스트용 계정과 데이터를 사용하세요.
 
 <a id="actions"></a>
 ## 액션

@@ -41,15 +41,7 @@ Flutterアプリ、Dart 3.4以降を含むFlutter SDK、アプリが対応する
 flutter doctor
 ```
 
-以下では、ローカルのソースコードを依存関係として使います。このリポジトリをダウンロードまたはcloneし、例えばアプリと同じ親フォルダーに配置します。
-
-```text
-workspace/
-  your_app/
-  jevis/
-```
-
-アプリの`pubspec.yaml`で、`dev_dependencies`にパッケージを追加します。
+アプリの`pubspec.yaml`で、`dev_dependencies`に[pub.devのjevis](https://pub.dev/packages/jevis)を追加します。
 
 ```yaml
 dev_dependencies:
@@ -57,11 +49,10 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  jevis:
-    path: ../jevis
+  jevis: ^0.1.1
 ```
 
-`path`は実際のリポジトリの場所に合わせて変更してください。フォルダー名とパッケージ名は同じでなくても構いません。アプリのルートで次を実行します。
+アプリのルートで次のコマンドを実行し、依存関係をインストールします。
 
 ```bash
 flutter pub get
@@ -140,7 +131,7 @@ flutter test integration_test/todo_test.dart \
 
 `<device-id>`を`flutter devices`に表示されたIDに置き換えてください。成功すると`JevisReport`を返します。目標を達成できなかった場合は`JevisTestFailure`をスローし、Flutterテストを失敗させます。
 
-設定で問題が起きた場合は、まずローカル依存関係のパス、デバイスID、`--dart-define-from-file`の指定を確認してください。APIリクエストには現在のUIテキストとアクションの説明が含まれるため、テスト用のアカウントとデータを使ってください。
+設定で問題が起きた場合は、まず`flutter pub get`が成功するか、デバイスID、`--dart-define-from-file`の指定を確認してください。APIリクエストには現在のUIテキストとアクションの説明が含まれるため、テスト用のアカウントとデータを使ってください。
 
 <a id="actions"></a>
 ## アクション
