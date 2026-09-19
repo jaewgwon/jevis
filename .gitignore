@@ -8,5 +8,5 @@ build/
 **/.env
 **/.flutter-plugins-dependencies
 **/.vscode/
-/doc/
+/internal/
 .DS_Store

@@ -213,7 +213,7 @@ JevisAction.drag(
 );
 ```
 
-For a targeted action, provide exactly one of `key` or `finder`. The finder must resolve to one visible target. The package generates action IDs. Use `availableWhen: () => ...` for additional availability conditions on custom controls. Pinch gestures are not built in. See the [action reference](docs/actions.md) for supported targets, timing, and examples.
+For a targeted action, provide exactly one of `key` or `finder`. The finder must resolve to one visible target. The package generates action IDs. Use `availableWhen: () => ...` for additional availability conditions on custom controls. Pinch gestures are not built in. See the [action reference](doc/actions.md) for supported targets, timing, and examples.
 
 <a id="goals-and-execution"></a>
 ## Goals and execution
@@ -358,7 +358,7 @@ flutter test
 flutter analyze
 ```
 
-These local tests check package behavior; they do not establish the accuracy of live model decisions. See the [action reference](docs/actions.md) and [changelog](CHANGELOG.md) for more details.
+These local tests check package behavior; they do not establish the accuracy of live model decisions. See the [action reference](doc/actions.md) and [changelog](CHANGELOG.md) for more details.
 
 <a id="license-and-contributing"></a>
 ## License and contributing

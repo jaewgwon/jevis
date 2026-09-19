@@ -19,4 +19,4 @@ build/
 pubspec.lock
 
 # Internal research and experiment records.
-/doc/
+/internal/

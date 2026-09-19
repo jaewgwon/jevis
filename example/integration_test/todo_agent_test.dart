@@ -9,6 +9,25 @@ import 'package:jevis_example/main.dart' as app;
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
+  todoTest(
+    'Add multiple todos, select 2 of them.',
+    actions: [
+      JevisActions.enterText(values: [
+        'Buy milk',
+        'Clean up',
+        'Send email',
+        'Call mom',
+      ])
+    ],
+    run: (agent) async {
+      await agent.test(
+        goal: 'Can find "Total: 4 | Completed: 2',
+        instruction:
+            'Add four todos: "Buy milk, Clean up, Send email, Call mom". Then set Call mom and Clean up finished.',
+        attempts: 60,
+      );
+    },
+  );
   catalogTest(
     'Jevis submits a form through keyboard actions',
     discoverTaps: false,
@@ -225,7 +244,6 @@ void todoTest(
   String name, {
   required List<JevisAction> actions,
   required Future<void> Function(JevisTester agent) run,
-  bool discoverTaps = true,
 }) {
   testWidgets(
     name,
@@ -236,10 +254,7 @@ void todoTest(
         tester: tester,
         options: const JevisOptions(goalThreshold: .6, actionThreshold: .2),
         actions: [
-          if (discoverTaps)
-            JevisActions.tap()
-          else
-            JevisAction.tap('Open the Widget Catalog tab.', key: 'tab_catalog'),
+          JevisActions.tap(),
           JevisActions.scroll(),
           ...actions,
         ],

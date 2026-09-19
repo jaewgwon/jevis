@@ -64,8 +64,8 @@ which require your own API key and a supported device.
 
 ## Public documentation
 
-Keep user-facing reference documentation in `docs/` and link to it from the
-READMEs. Keep `CHANGELOG.md` at the repository root. The `doc/` directory is
+Keep user-facing reference documentation in `doc/` and link to it from the
+READMEs. Keep `CHANGELOG.md` at the repository root. The `internal/` directory is
 reserved for private research and experiment records and is excluded from Git
 and package publication. Do not copy experimental reports, fixtures, or internal
-review notes into `docs/`, or link public documentation to `doc/`.
+review notes into `doc/`, or link public documentation to `internal/`.

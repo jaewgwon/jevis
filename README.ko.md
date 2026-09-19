@@ -213,7 +213,7 @@ JevisAction.drag(
 );
 ```
 
-대상이 있는 액션에는 `key`와 `finder` 중 하나만 지정합니다. Finder는 화면상의 대상 하나를 찾아야 합니다. 액션 ID는 패키지가 생성합니다. 커스텀 컨트롤의 추가 사용 가능 조건은 `availableWhen: () => ...`으로 지정하세요. 핀치 제스처는 기본 제공하지 않습니다. 대상, 시간 설정, 예제는 [액션 안내](docs/actions.md)를 참고하세요.
+대상이 있는 액션에는 `key`와 `finder` 중 하나만 지정합니다. Finder는 화면상의 대상 하나를 찾아야 합니다. 액션 ID는 패키지가 생성합니다. 커스텀 컨트롤의 추가 사용 가능 조건은 `availableWhen: () => ...`으로 지정하세요. 핀치 제스처는 기본 제공하지 않습니다. 대상, 시간 설정, 예제는 [액션 안내](doc/actions.md)를 참고하세요.
 
 <a id="goals-and-execution"></a>
 ## 목표와 실행
@@ -358,7 +358,7 @@ flutter test
 flutter analyze
 ```
 
-로컬 테스트는 패키지 동작을 검증하며 실제 모델 판단의 정확도를 입증하지는 않습니다. 자세한 내용은 [액션 안내](docs/actions.md)와 [변경 이력](CHANGELOG.md)을 참고하세요.
+로컬 테스트는 패키지 동작을 검증하며 실제 모델 판단의 정확도를 입증하지는 않습니다. 자세한 내용은 [액션 안내](doc/actions.md)와 [변경 이력](CHANGELOG.md)을 참고하세요.
 
 <a id="license-and-contributing"></a>
 ## 라이선스와 기여
