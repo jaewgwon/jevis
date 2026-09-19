@@ -13,6 +13,30 @@ class DoneBrain implements JevisBrain {
 }
 
 void main() {
+  for (final useColors in [
+    true,
+    false,
+    null,
+  ]) {
+    testWidgets('failure colors can be set for device logs: $useColors',
+        (tester) async {
+      await tester.pumpWidget(const MaterialApp(home: Text('Not completed')));
+      final agent = JevisTester(
+          tester: tester,
+          actions: [],
+          brain: DoneBrain(),
+          useColors: useColors);
+      final expectColors = useColors ??
+          const bool.fromEnvironment('JEVIS_LOG_COLORS', defaultValue: true);
+      await expectLater(
+          agent.test(goal: 'Goal', attempts: 1, verify: () => false),
+          throwsA(isA<JevisTestFailure>().having(
+              (failure) => failure.toString().contains('\x1B[32m99.00%\x1B[0m'),
+              'green goal probability',
+              expectColors)));
+    });
+  }
+
   for (final instruction in [null, 'Tap Save.']) {
     testWidgets('named test parameters with instruction=$instruction',
         (tester) async {

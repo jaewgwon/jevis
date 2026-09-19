@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'core.dart';
+import 'failure_diagnostics.dart';
 import 'ui_context.dart';
 import 'jevis_policy.dart';
 
@@ -333,8 +334,9 @@ class JevisFlutterDriver implements JevisDriver, JevisRunLifecycle {
 
 /// A failed autonomous run automatically fails its enclosing Flutter test.
 class JevisTestFailure extends TestFailure {
-  JevisTestFailure(this.report)
-      : super('Jevis goal not reached: ${report.status.name}');
+  /// Colors are enabled by default unless explicitly disabled.
+  JevisTestFailure(this.report, {bool? useColors})
+      : super(formatFailureDiagnostics(report, useColors: useColors));
   final JevisReport report;
 }
 
@@ -351,6 +353,7 @@ class JevisTester {
       void Function(int statusCode, String body)? onResponse,
       JevisOptions options = const JevisOptions(),
       Map<String, Object?> Function()? observe,
+      this.useColors,
       this.onReport}) {
     options.validate();
     final driver = JevisFlutterDriver(
@@ -373,6 +376,10 @@ class JevisTester {
   }
   late final JevisRunner _runner;
   final void Function(JevisReport)? onReport;
+
+  /// Overrides JEVIS_LOG_COLORS for forwarded device logs.
+  /// Colors are enabled by default.
+  final bool? useColors;
   bool _running = false;
   JevisReport? lastReport;
 
@@ -417,7 +424,9 @@ class JevisTester {
       }
       lastReport = report;
       onReport?.call(report);
-      if (!report.succeeded) throw JevisTestFailure(report);
+      if (!report.succeeded) {
+        throw JevisTestFailure(report, useColors: useColors);
+      }
       return report;
     } finally {
       _running = false;

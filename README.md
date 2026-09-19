@@ -273,7 +273,7 @@ Choice can select `__stop__` when it considers the instruction complete. Jevis t
 
 ### Verify the result
 
-The default success threshold is `goalThreshold: 0.95`. This is a **probabilistic model judgment, not a deterministic guarantee**. Reports use `completionBasis: model`. Hidden state, persistence, and server-side effects cannot be established from UI evidence alone.
+The default success threshold is `goalThreshold: 0.6`. This is a **probabilistic model judgment, not a deterministic guarantee**. Reports use `completionBasis: model`. Hidden state, persistence, and server-side effects cannot be established from UI evidence alone.
 
 Add `verify` when you need a deterministic check after model completion:
 
@@ -321,8 +321,8 @@ final agent = JevisTester(
   actions: actions,
   model: 'jev-latest',
   options: const JevisOptions(
-    goalThreshold: 0.95,
-    actionThreshold: 0.5,
+    goalThreshold: 0.6,
+    actionThreshold: 0.2,
     maxRepeatedAction: 2,
     decisionTimeout: Duration(seconds: 30),
     settleTimeout: Duration(seconds: 5),
@@ -334,7 +334,9 @@ final agent = JevisTester(
 
 The returned report, `agent.lastReport`, and `JevisTestFailure.report` contain observations, goal probabilities, action confidence and distributions, returned model IDs, executed actions, and failure details. The API key is not included in reports. Use `onRequest` and `onResponse` to inspect HTTP bodies when debugging; those bodies may contain test UI data.
 
-Action confidence is not an accuracy score. Tune thresholds against your app's test data. The bundled catalog tests currently use `goalThreshold: 0.6` and `actionThreshold: 0.2`; the package defaults remain `0.95` and `0.5`.
+ANSI colors in failure logs are enabled by default. Disable them with `--dart-define=JEVIS_LOG_COLORS=false` or `JevisTester(useColors: false)`. An explicit `useColors` takes precedence over the build setting.
+
+Action confidence is not an accuracy score. Tune thresholds against your app's test data. The bundled catalog tests currently use `goalThreshold: 0.6` and `actionThreshold: 0.2`; these are also the package defaults.
 
 <a id="example-and-tests"></a>
 ## Example and tests
